@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rikstoto — Bursdagsløpet Roy 2025 · LIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rt-red: #d6182c;
+  --rt-red2: #a50f1f;
+  --rt-dark: #050608;
+  --rt-darker: #020203;
+  --rt-yellow: #ffd230;
+  --rt-yellow2: #ffb800;
+  --rt-green: #1a9647;
+  --rt-green2: #0f6b30;
+  --rt-grey: #16181c;
+  --rt-lgrey: #1d2026;
+  --rt-mgrey: #292d35;
+  --rt-border: #2a2e36;
+  --rt-text: #f0f1f3;
+  --rt-dim: #7a7f8a;
+  --rt-gold: #d4af37;
+  --rt-blue: #2d8acc;
+  --track-bg: #0a0c10;
+  --track-h: 70px;
+  --grass-1: #1a3a1f;
+  --grass-2: #0f2613;
+  --shadow-elev: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+::selection { background: var(--rt-red); color: white; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--rt-darker);
+  color: var(--rt-text);
+  font-family: 'Roboto Condensed', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(214,24,44,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(45,138,204,0.03) 0%, transparent 50%);
+}
+body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 2;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(255,255,255,0.005) 2px, rgba(255,255,255,0.005) 3px);
+  opacity: 0.4;
+}
+
+/* ═══════════════════ TOPBAR ═══════════════════ */
+.topbar {
+  background: linear-gradient(180deg, var(--rt-red) 0%, var(--rt-red2) 100%);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1rem; height: 48px;
+  position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7), inset 0 -1px 0 rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+.topbar-left { display: flex; align-items: center; gap: 1rem; }
+.topbar-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem; letter-spacing: 0.04em;
+  color: white; line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.topbar-logo::before {
+  content: ''; width: 22px; height: 22px;
+  background: var(--rt-yellow);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.4rem;
+  position: relative; top: 4px;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.3), inset 0 -3px 0 rgba(0,0,0,0.15);
+  background-image: radial-gradient(circle at 30% 30%, #ffe680 0%, var(--rt-yellow) 60%);
+}
+.topbar-logo span { color: var(--rt-yellow); font-size: 1.3rem; opacity: 0.9; }
+.topbar-nav { display: flex; gap: 0.2rem; }
+.topbar-nav-item {
+  font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.08em; color: rgba(255,255,255,0.85);
+  padding: 0.4rem 0.7rem; border-radius: 3px;
+  text-transform: uppercase; cursor: pointer;
+  transition: background 0.15s;
+}
+.topbar-nav-item:hover { background: rgba(0,0,0,0.2); }
+.topbar-nav-item.active { background: rgba(0,0,0,0.3); color: var(--rt-yellow); }
+
+.topbar-right { display: flex; align-items: center; gap: 0.8rem; }
+.live-indicator {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(0,0,0,0.4); padding: 0.3rem 0.7rem;
+  border-radius: 3px; border: 1px solid rgba(255,255,255,0.1);
+}
+.live-dot { width: 8px; height: 8px; background: #4eff91; border-radius: 50%; box-shadow: 0 0 8px #4eff91; animation: pulse 1.4s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.85)} }
+.live-text { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; color: white; }
+.balance-pill {
+  font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+  background: rgba(0,0,0,0.4); padding: 0.4rem 0.8rem;
+  border-radius: 3px; color: var(--rt-yellow);
+  border: 1px solid rgba(255,255,255,0.1);
+  letter-spacing: 0.05em;
+}
+.balance-pill .label { color: rgba(255,255,255,0.7); margin-right: 0.3rem; font-weight: 400; }
+
+/* ═══════════════════ HERO BANNER ═══════════════════ */
+.hero {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(5,6,8,0.4) 0%, var(--rt-darker) 100%),
+    radial-gradient(ellipse at 50% 0%, rgba(214,24,44,0.25) 0%, transparent 70%),
+    linear-gradient(135deg, #0a0d12 0%, #14171e 50%, #0a0d12 100%);
+  padding: 1.4rem 1rem 1.2rem;
+  border-bottom: 1px solid var(--rt-border);
+  overflow: hidden;
+  z-index: 3;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0, transparent 30px, rgba(255,255,255,0.012) 30px, rgba(255,255,255,0.012) 31px),
+    repeating-linear-gradient(-45deg, transparent 0, transparent 30px, rgba(255,255,255,0.012) 30px, rgba(255,255,255,0.012) 31px);
+  pointer-events: none;
+}
+.hero-content { position: relative; max-width: 1200px; margin: 0 auto; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; }
+.badge {
+  font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 2px;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  position: relative;
+}
+.badge-red { background: var(--rt-red); color: white; box-shadow: 0 2px 8px rgba(214,24,44,0.4); }
+.badge-red::before { content: '●'; color: white; font-size: 0.6rem; }
+.badge-green { background: var(--rt-green); color: white; }
+.badge-gold { background: linear-gradient(135deg, var(--rt-yellow), var(--rt-yellow2)); color: #1a1300; font-weight: 700; }
+.badge-grey { background: var(--rt-mgrey); color: #b0b3b8; border: 1px solid var(--rt-border); }
+.badge-pulse { animation: badgepulse 2s ease infinite; }
+@keyframes badgepulse { 0%,100%{box-shadow:0 0 0 0 rgba(214,24,44,0.5)} 50%{box-shadow:0 0 0 8px rgba(214,24,44,0)} }
+
+.hero-title-row {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 1rem; flex-wrap: wrap;
+}
+.hero-title-block { flex: 1; min-width: 280px; }
+.hero-pretitle {
+  font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--rt-dim); margin-bottom: 0.3rem;
+}
+.hero-pretitle .sep { color: var(--rt-red); margin: 0 0.5rem; }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  letter-spacing: 0.02em; line-height: 0.95;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--rt-yellow) 0%, var(--rt-yellow2) 60%, #ff9500 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+.hero-subtitle {
+  font-family: 'Roboto Condensed', sans-serif; font-style: italic;
+  font-size: 0.95rem; color: var(--rt-dim); margin-top: 0.5rem;
+  font-weight: 300;
+}
+.hero-stats {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  align-items: stretch;
+}
+.stat-card {
+  background: rgba(0,0,0,0.5); border: 1px solid var(--rt-border);
+  border-radius: 4px; padding: 0.55rem 0.9rem;
+  min-width: 90px;
+  position: relative; overflow: hidden;
+}
+.stat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: var(--rt-red); }
+.stat-label { font-family: 'Oswald', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; color: var(--rt-dim); text-transform: uppercase; }
+.stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--rt-yellow); line-height: 1.1; letter-spacing: 0.02em; }
+.stat-card .stat-sub { font-size: 0.65rem; color: var(--rt-dim); margin-top: -0.1rem; }
+
+/* ═══════════════════ STATUS / COUNTDOWN ═══════════════════ */
+.status-bar {
+  background: linear-gradient(90deg, #0c0e12 0%, #14171e 50%, #0c0e12 100%);
+  border-bottom: 1px solid var(--rt-border);
+  padding: 0.5rem 1rem; position: relative;
+  display: flex; align-items: center; gap: 1rem;
+  z-index: 3;
+}
+.status-bar::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--rt-red);
+}
+.status-icon {
+  font-family: 'Oswald', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.15em; color: var(--rt-yellow);
+  text-transform: uppercase;
+}
+.status-text {
+  font-family: 'Roboto Condensed', sans-serif; font-size: 0.85rem;
+  color: var(--rt-text); font-style: italic; flex: 1;
+  min-height: 1.2rem;
+}
+
+/* ═══════════════════ MAIN CONTAINER ═══════════════════ */
+.main { max-width: 1200px; margin: 0 auto; padding: 0.6rem 0.5rem; position: relative; z-index: 3; }
+.layout { display: grid; gap: 0.6rem; grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .layout { grid-template-columns: 1fr 320px; }
+}
+
+/* ═══════════════════ PROGRESS HUD ═══════════════════ */
+.progress-hud {
+  background: linear-gradient(180deg, var(--rt-grey) 0%, #101216 100%);
+  border: 1px solid var(--rt-border);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.6rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 0.8rem;
+  align-items: center;
+  box-shadow: var(--shadow-elev);
+}
+.hud-block { display: flex; flex-direction: column; gap: 0.1rem; }
+.hud-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; color: var(--rt-dim); text-transform: uppercase; }
+.hud-value { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--rt-yellow); font-weight: 700; line-height: 1; }
+.hud-value.large { font-size: 1.3rem; }
+
+.progress-bar-wrap { position: relative; height: 14px; }
+.progress-bar-bg {
+  height: 100%; background: #050608;
+  border: 1px solid var(--rt-border); border-radius: 3px;
+  overflow: hidden; position: relative;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.6);
+}
+.progress-bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--rt-green2) 0%, var(--rt-green) 50%, #4eff91 100%);
+  transition: width 0.15s linear;
+  position: relative;
+  box-shadow: 0 0 8px rgba(78,255,145,0.4);
+}
+.progress-bar-fill::after {
+  content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 2px;
+  background: white; box-shadow: 0 0 6px white;
+}
+/* tick marks on progress */
+.progress-ticks {
+  position: absolute; inset: 0; display: flex; justify-content: space-between;
+  padding: 0 2px; pointer-events: none;
+}
+.progress-ticks span { width: 1px; background: rgba(255,255,255,0.1); height: 100%; }
+
+/* ═══════════════════ TRACK ═══════════════════ */
+.track-section { display: flex; flex-direction: column; gap: 0.6rem; }
+.track-outer {
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--track-bg);
+  box-shadow: var(--shadow-elev), inset 0 0 0 1px var(--rt-border);
+  position: relative;
+}
+.track-header {
+  background: linear-gradient(180deg, #0a0c10 0%, #14171e 100%);
+  border-bottom: 1px solid var(--rt-border);
+  padding: 0.5rem 0.9rem;
+  display: flex; align-items: center; gap: 0.8rem;
+  font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.15em; color: var(--rt-dim);
+  text-transform: uppercase;
+}
+.track-header .th-num {
+  background: var(--rt-red); color: white;
+  padding: 0.2rem 0.5rem; border-radius: 2px;
+  font-size: 0.62rem; letter-spacing: 0.1em;
+}
+.track-header .th-active { color: var(--rt-yellow); }
+.track-header .spacer { flex: 1; }
+.track-header .th-finish { color: var(--rt-yellow); }
+
+.track-body { position: relative; }
+/* Lane gradient (grass effect) */
+.lane {
+  display: flex; align-items: center;
+  height: var(--track-h); position: relative;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.2) 50%, transparent 100%),
+    linear-gradient(90deg,
+      rgba(214,24,44,0.04) 0%,
+      transparent 5%,
+      transparent 95%,
+      rgba(255,210,48,0.04) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  overflow: hidden;
+}
+.lane:nth-child(odd) {
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 50%, transparent 100%),
+    linear-gradient(90deg, #0d1014 0%, #0a0c10 100%);
+}
+.lane::before {
+  /* track surface dirt texture */
+  content: ''; position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px),
+    repeating-linear-gradient(0deg, transparent 0, transparent 8px, rgba(0,0,0,0.15) 8px, rgba(0,0,0,0.15) 9px);
+  pointer-events: none;
+}
+
+/* Distance markers */
+.lane:first-child::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(90deg, transparent 0%, transparent 25%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 25.2%, transparent 25.2%),
+    linear-gradient(90deg, transparent 0%, transparent 50%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.06) 50.2%, transparent 50.2%),
+    linear-gradient(90deg, transparent 0%, transparent 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06) 75.2%, transparent 75.2%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lane-num-col { width: 44px; flex-shrink: 0; z-index: 5; padding-left: 0.4rem; }
+.lane-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 4px;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem;
+  letter-spacing: 0.05em; line-height: 1;
+  border: 1px solid;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 -2px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.horse-wrap {
+  position: absolute; display: flex; align-items: center;
+  z-index: 4; will-change: left, transform;
+  transition: transform 0.25s ease;
+}
+.horse-wrap.boost { animation: speedBlur 0.3s ease; }
+@keyframes speedBlur { 0%{transform:translateY(0)} 50%{transform:translateY(-1px) scaleX(1.05)} 100%{transform:translateY(0)} }
+.horse-wrap.crashed { filter: grayscale(0.7) brightness(0.7); }
+
+.horse-svg { width: 86px; height: 60px; filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.5)); }
+
+/* Trot animation */
+.leg { transform-origin: top center; }
+.race-running .leg-fl { animation: tfl 0.28s ease-in-out infinite alternate; }
+.race-running .leg-fr { animation: tfr 0.28s ease-in-out infinite alternate 0.14s; }
+.race-running .leg-hl { animation: thl 0.28s ease-in-out infinite alternate 0.14s; }
+.race-running .leg-hr { animation: thr 0.28s ease-in-out infinite alternate; }
+@keyframes tfl { from{transform:rotate(-22deg)} to{transform:rotate(18deg)} }
+@keyframes tfr { from{transform:rotate(-18deg)} to{transform:rotate(22deg)} }
+@keyframes thl { from{transform:rotate(-18deg)} to{transform:rotate(22deg)} }
+@keyframes thr { from{transform:rotate(-22deg)} to{transform:rotate(18deg)} }
+
+.race-running .driver-body { animation: driverBob 0.28s ease-in-out infinite alternate; }
+@keyframes driverBob { from{transform:translateY(0) rotate(0)} to{transform:translateY(-2px) rotate(-2deg)} }
+
+.race-running .horse-mane { animation: maneFlow 0.28s ease-in-out infinite alternate; }
+@keyframes maneFlow { from{transform:translateX(0)} to{transform:translateX(-1.5px)} }
+
+.race-running .horse-tail { animation: tailFlow 0.4s ease-in-out infinite alternate; transform-origin: right center; }
+@keyframes tailFlow { from{transform:rotate(-8deg)} to{transform:rotate(8deg)} }
+
+/* Speed lines when boosting */
+.speed-lines {
+  position: absolute; top: 50%; right: 100%;
+  width: 0; height: 2px;
+  pointer-events: none;
+  opacity: 0;
+}
+.boost-active .speed-lines {
+  width: 50px; opacity: 1;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6));
+  box-shadow: 0 -8px 0 -1px rgba(255,255,255,0.4), 0 8px 0 -1px rgba(255,255,255,0.4);
+  animation: speedLines 0.4s linear;
+}
+@keyframes speedLines { from{width:0;opacity:1} to{width:60px;opacity:0} }
+
+/* Dust */
+.dust-puff {
+  position: absolute; pointer-events: none; z-index: 3;
+  width: 22px; height: 12px;
+  background: radial-gradient(ellipse, rgba(180,150,100,0.6) 0%, transparent 70%);
+  animation: dustfade 0.6s ease forwards;
+  border-radius: 50%;
+}
+@keyframes dustfade {
+  0% { opacity: 0.7; transform: translateX(0) scale(0.8); }
+  100% { opacity: 0; transform: translateX(-20px) scale(2); }
+}
+
+/* Horse info on right */
+.horse-info {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: 1px; z-index: 2; min-width: 90px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 30%);
+  padding-left: 30px;
+}
+.h-name { font-family: 'Oswald', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--rt-text); letter-spacing: 0.02em; }
+.h-detail { font-size: 0.6rem; color: var(--rt-dim); font-style: italic; }
+.h-odds-mini {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+  color: var(--rt-yellow); margin-top: 0.1rem;
+}
+
+/* Finish line */
+.finish-marker {
+  position: absolute; top: 0; bottom: 0; right: 70px; width: 4px; z-index: 8;
+  background:
+    repeating-linear-gradient(to bottom, white 0, white 8px, #0a0c10 8px, #0a0c10 16px);
+  box-shadow: 0 0 12px rgba(255,255,255,0.3), -2px 0 4px rgba(0,0,0,0.6);
+}
+.finish-flag {
+  position: absolute; top: -6px; left: -28px;
+  background: linear-gradient(135deg, var(--rt-red), var(--rt-red2));
+  color: white;
+  font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.15em; padding: 4px 8px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.finish-flag::after {
+  content: ''; position: absolute; bottom: -4px; right: 4px;
+  width: 0; height: 0; border-left: 4px solid transparent;
+  border-right: 4px solid transparent; border-top: 4px solid var(--rt-red2);
+}
+
+.start-gate {
+  position: absolute; top: 0; bottom: 0; left: 44px; width: 3px;
+  background: linear-gradient(180deg, #555 0%, #999 50%, #555 100%);
+  z-index: 5; transition: opacity 0.6s, transform 0.4s;
+  box-shadow: 0 0 4px rgba(255,255,255,0.2);
+}
+.start-gate::before, .start-gate::after {
+  content: ''; position: absolute; left: -8px;
+  width: 19px; height: 4px;
+  background: linear-gradient(180deg, #888 0%, #444 100%);
+  border-radius: 1px;
+}
+.start-gate::before { top: 4px; }
+.start-gate::after { bottom: 4px; }
+
+/* ═══════════════════ ODDS CARDS ═══════════════════ */
+.odds-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.5rem;
+}
+.odds-card {
+  background: linear-gradient(180deg, var(--rt-lgrey) 0%, var(--rt-grey) 100%);
+  border: 1px solid var(--rt-border);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem 0.85rem 0.65rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.odds-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  z-index: 1;
+}
+.odds-card::after {
+  content: ''; position: absolute;
+  inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.04) 0%, transparent 50%);
+}
+.odds-card:hover {
+  border-color: #44495a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+.odds-card.selected {
+  border-color: var(--rt-yellow);
+  background: linear-gradient(180deg, #2a2400 0%, #1a1500 100%);
+  box-shadow: 0 0 0 1px var(--rt-yellow), 0 8px 24px rgba(255,210,48,0.25);
+  transform: translateY(-2px);
+}
+.odds-card.selected .check-mark {
+  display: flex; opacity: 1; transform: scale(1);
+}
+.check-mark {
+  position: absolute; top: 6px; right: 6px;
+  width: 22px; height: 22px;
+  background: var(--rt-yellow); color: #1a1300;
+  border-radius: 50%;
+  display: none; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  box-shadow: 0 2px 6px rgba(255,210,48,0.5);
+  animation: checkPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes checkPop { from{transform:scale(0)} to{transform:scale(1)} }
+.oc-top { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; position: relative; z-index: 2; }
+.oc-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+  line-height: 1; letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.oc-name {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600;
+  line-height: 1.15; color: var(--rt-text);
+  letter-spacing: 0.01em;
+}
+.oc-mid { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; }
+.oc-driver {
+  font-size: 0.62rem; color: var(--rt-dim);
+  font-style: italic;
+}
+.oc-driver::before { content: '🎯 '; opacity: 0.6; }
+.oc-form {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: var(--rt-dim); letter-spacing: 0.05em;
+}
+.oc-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.oc-odds-label { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 0.15em; color: var(--rt-dim); text-transform: uppercase; line-height: 1; }
+.oc-odds {
+  font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; font-weight: 700;
+  color: var(--rt-yellow);
+  background: rgba(255,210,48,0.08);
+  border: 1px solid rgba(255,210,48,0.2);
+  padding: 0.2rem 0.5rem; border-radius: 3px;
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════ SIDEBAR ═══════════════════ */
+.sidebar { display: flex; flex-direction: column; gap: 0.6rem; }
+.panel {
+  background: linear-gradient(180deg, var(--rt-grey) 0%, #101216 100%);
+  border: 1px solid var(--rt-border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-elev);
+}
+.panel-header {
+  background: linear-gradient(90deg, #14171e 0%, #1a1d24 100%);
+  border-bottom: 1px solid var(--rt-border);
+  padding: 0.55rem 0.9rem;
+  font-family: 'Oswald', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.15em; color: var(--rt-text);
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.panel-header .ph-icon { color: var(--rt-red); }
+
+.commentary-text {
+  padding: 0.8rem 0.95rem;
+  font-size: 0.92rem; color: var(--rt-text); line-height: 1.5;
+  font-style: italic; min-height: 4.5rem;
+  font-weight: 300;
+  position: relative;
+}
+.commentary-text::before {
+  content: '“'; position: absolute; top: 0; left: 0.5rem;
+  font-family: 'Bebas Neue', serif; font-size: 3rem; color: var(--rt-red);
+  opacity: 0.3; line-height: 1; pointer-events: none;
+}
+.commentary-text .text-content { padding-left: 0.5rem; }
+.commentary-text .hi { color: var(--rt-yellow); font-style: normal; font-weight: 600; }
+.commentary-text .hi-red { color: #ff6b6b; font-style: normal; font-weight: 700; }
+
+/* Leaderboard */
+.lb-row {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.78rem;
+  transition: background 0.2s, transform 0.3s;
+  position: relative;
+}
+.lb-row:last-child { border-bottom: none; }
+.lb-row.user-pick {
+  background: linear-gradient(90deg, rgba(255,210,48,0.08) 0%, transparent 100%);
+}
+.lb-row.user-pick::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--rt-yellow);
+}
+.lb-pos {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+  width: 22px; text-align: center; line-height: 1;
+}
+.lb-pos.p1 { color: var(--rt-gold); }
+.lb-pos.p2 { color: #c0c0c0; }
+.lb-pos.p3 { color: #cd7f32; }
+.lb-num {
+  font-family: 'Bebas Neue', sans-serif; font-weight: 700;
+  width: 18px; text-align: center;
+}
+.lb-name { flex: 1; font-family: 'Oswald', sans-serif; font-size: 0.78rem; }
+.lb-bar-wrap { width: 70px; }
+.lb-bar { height: 5px; background: #050608; border-radius: 3px; overflow: hidden; border: 1px solid #1a1d24; }
+.lb-bar-fill { height: 100%; transition: width 0.4s ease; box-shadow: 0 0 4px currentColor; }
+.lb-pct { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--rt-dim); width: 32px; text-align: right; }
+
+/* Pool / pot stats panel */
+.pool-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--rt-border);
+}
+.pool-cell {
+  background: var(--rt-grey);
+  padding: 0.6rem 0.8rem;
+}
+.pool-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--rt-dim); text-transform: uppercase; }
+.pool-value { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: var(--rt-yellow); font-weight: 700; margin-top: 0.15rem; }
+
+/* ═══════════════════ ACTION BAR ═══════════════════ */
+.action-bar {
+  background: linear-gradient(180deg, var(--rt-grey) 0%, #0c0e12 100%);
+  border: 1px solid var(--rt-border);
+  border-radius: 6px;
+  padding: 0.7rem;
+  display: flex; gap: 0.6rem; align-items: stretch;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow-elev);
+}
+.bet-info {
+  background: var(--rt-darker);
+  border: 1px solid var(--rt-border);
+  border-radius: 4px;
+  padding: 0.5rem 0.9rem;
+  display: flex; flex-direction: column; justify-content: center;
+  min-width: 100px;
+}
+.bet-info-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--rt-dim); text-transform: uppercase; }
+.bet-info-value { font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; color: var(--rt-yellow); font-weight: 700; }
+.bet-info .sub { font-size: 0.68rem; color: var(--rt-dim); margin-top: 0.1rem; font-family: 'Oswald', sans-serif; }
+
+.btn-start {
+  flex: 1;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  background: linear-gradient(180deg, var(--rt-red) 0%, var(--rt-red2) 100%);
+  color: white; border: none; border-radius: 4px;
+  cursor: pointer; transition: all 0.2s;
+  position: relative; overflow: hidden;
+  box-shadow:
+    0 4px 16px rgba(214,24,44,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -2px 0 rgba(0,0,0,0.3);
+  padding: 0.6rem 1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.btn-start::before {
+  content: ''; position: absolute;
+  top: -50%; left: -60%; width: 40%; height: 200%;
+  background: rgba(255,255,255,0.18);
+  transform: skewX(-20deg);
+  transition: left 0.4s;
+}
+.btn-start:hover::before { left: 140%; }
+.btn-start:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 20px rgba(214,24,44,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    inset 0 -2px 0 rgba(0,0,0,0.3);
+}
+.btn-start:active:not(:disabled) { transform: translateY(0); }
+.btn-start:disabled {
+  background: linear-gradient(180deg, #2a2d35 0%, #1a1d24 100%);
+  color: #555;
+  cursor: not-allowed;
+  box-shadow: none;
+  text-shadow: none;
+}
+.btn-start .btn-icon { font-size: 1rem; margin-right: 0.4rem; vertical-align: -2px; }
+
+/* ═══════════════════ COUNTDOWN OVERLAY ═══════════════════ */
+.countdown-overlay {
+  display: none; position: fixed; inset: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.95) 100%);
+  z-index: 150;
+  align-items: center; justify-content: center;
+}
+.countdown-overlay.show { display: flex; }
+.countdown-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14rem;
+  color: var(--rt-yellow);
+  line-height: 1;
+  text-shadow:
+    0 0 40px rgba(255,210,48,0.6),
+    0 0 80px rgba(255,210,48,0.3);
+  animation: countdownPop 1s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.countdown-num.go {
+  color: var(--rt-red);
+  font-size: 11rem;
+  text-shadow:
+    0 0 60px rgba(214,24,44,0.7),
+    0 0 120px rgba(214,24,44,0.4);
+}
+@keyframes countdownPop {
+  0% { transform: scale(0.3); opacity: 0; }
+  20% { transform: scale(1.2); opacity: 1; }
+  80% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ═══════════════════ MODAL ═══════════════════ */
+.modal-bg {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.modal-bg.show { display: flex; animation: mfade 0.4s ease; }
+@keyframes mfade { from{opacity:0} to{opacity:1} }
+.modal {
+  background: linear-gradient(180deg, var(--rt-grey) 0%, #0c0e12 100%);
+  border: 1px solid var(--rt-border);
+  border-radius: 10px;
+  max-width: 580px; width: 100%;
+  overflow: hidden;
+  animation: mpop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 80px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.05);
+}
+@keyframes mpop {
+  from{transform:scale(0.7) translateY(40px); opacity:0}
+  to{transform:none; opacity:1}
+}
+.modal-header {
+  padding: 2rem 1.8rem 1.5rem; text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+.modal-header.win {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,210,48,0.3) 0%, transparent 70%),
+    linear-gradient(135deg, #0a3d16 0%, #1a9647 100%);
+}
+.modal-header.win::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0, transparent 20px, rgba(255,255,255,0.04) 20px, rgba(255,255,255,0.04) 21px);
+  animation: stripeMove 12s linear infinite;
+}
+@keyframes stripeMove { from{background-position:0 0} to{background-position:100px 100px} }
+.modal-header.lose {
+  background: linear-gradient(135deg, #2d0a0a 0%, #6b1010 100%);
+}
+.modal-emoji { font-size: 4rem; line-height: 1; margin-bottom: 0.5rem; position: relative; z-index: 2; animation: emojiPop 0.6s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes emojiPop { from{transform:scale(0) rotate(-180deg)} to{transform:none} }
+.modal-result-label { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.7); margin-bottom: 0.4rem; position: relative; z-index: 2; }
+.modal-result-heading {
+  font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem;
+  color: var(--rt-yellow); line-height: 1; letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  position: relative; z-index: 2;
+}
+.modal-result-sub { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem; position: relative; z-index: 2; }
+
+.modal-podium {
+  background: var(--rt-darker);
+  border-bottom: 1px solid var(--rt-border);
+  padding: 0.9rem 1.8rem;
+}
+.podium-title {
+  font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.2em; color: var(--rt-dim); text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.podium-row {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.35rem 0; font-size: 0.85rem;
+}
+.podium-pos { font-size: 1.3rem; line-height: 1; width: 28px; text-align: center; }
+.podium-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+  width: 22px; text-align: center;
+}
+.podium-name { flex: 1; font-family: 'Oswald', sans-serif; font-weight: 600; }
+.podium-time { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--rt-dim); }
+
+.modal-body { padding: 1.4rem 1.8rem 0.5rem; }
+.gift-section {
+  background:
+    linear-gradient(135deg, rgba(255,210,48,0.08) 0%, rgba(255,184,0,0.05) 100%),
+    var(--rt-darker);
+  border: 1px solid var(--rt-yellow);
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255,210,48,0.15);
+}
+.gift-section::before {
+  content: '🎁'; position: absolute;
+  top: -10px; right: -10px;
+  font-size: 5rem; opacity: 0.08;
+  transform: rotate(15deg);
+}
+.gift-label {
+  font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.25em; color: var(--rt-yellow);
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.gift-text {
+  font-size: 1.05rem; line-height: 1.7;
+  color: var(--rt-text); font-weight: 300;
+  position: relative; z-index: 1;
+}
+.gift-text strong { color: var(--rt-yellow); font-weight: 600; }
+
+.try-again-msg {
+  background: linear-gradient(135deg, #1a0000 0%, #2a0808 100%);
+  border: 1px solid #5d0e0e;
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem; color: #cc8888;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
+.modal-actions {
+  display: flex; gap: 0.6rem;
+  padding: 0 1.8rem 1.6rem;
+}
+.btn-modal {
+  flex: 1; font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+  letter-spacing: 0.1em; padding: 0.85rem; border-radius: 4px;
+  border: none; cursor: pointer; transition: all 0.2s;
+}
+.btn-modal-primary {
+  background: linear-gradient(180deg, var(--rt-red) 0%, var(--rt-red2) 100%);
+  color: white;
+  box-shadow: 0 3px 10px rgba(214,24,44,0.4);
+}
+.btn-modal-primary:hover { transform: translateY(-1px); box-shadow: 0 5px 16px rgba(214,24,44,0.6); }
+.btn-modal-secondary { background: var(--rt-mgrey); color: var(--rt-dim); border: 1px solid var(--rt-border); }
+.btn-modal-secondary:hover { background: var(--rt-lgrey); color: var(--rt-text); }
+
+/* ═══════════════════ CONFETTI ═══════════════════ */
+.conf {
+  position: fixed; top: -12px; z-index: 300;
+  animation: cfall linear forwards;
+  pointer-events: none;
+}
+@keyframes cfall {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(900deg); opacity: 0; }
+}
+
+/* ═══════════════════ TICKER ═══════════════════ */
+.ticker-wrap {
+  background: linear-gradient(180deg, #050608 0%, #0a0c10 100%);
+  border-top: 2px solid var(--rt-red);
+  overflow: hidden; white-space: nowrap;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+  height: 30px; display: flex; align-items: center;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.7);
+}
+.ticker-label {
+  background: var(--rt-red);
+  color: white;
+  font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem;
+  letter-spacing: 0.12em; padding: 0 0.9rem;
+  height: 100%; display: flex; align-items: center;
+  flex-shrink: 0; z-index: 1;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.4);
+}
+.ticker-label::after {
+  content: ''; position: absolute;
+  right: -10px; top: 0; bottom: 0; width: 10px;
+  background: linear-gradient(90deg, var(--rt-red), transparent);
+}
+.ticker-track {
+  display: inline-block;
+  animation: tick 38s linear infinite;
+  font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+  color: #aaa; letter-spacing: 0.05em;
+  padding-left: 100%;
+}
+@keyframes tick { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+.ticker-track span { margin: 0 2rem; }
+.ticker-track .t-hi { color: var(--rt-yellow); font-weight: 600; }
+.ticker-track .t-pulse { color: #ff6b6b; }
+body { padding-bottom: 30px; }
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .topbar-nav { display: none; }
+  .hero-stats { width: 100%; }
+  .horse-svg { width: 70px; height: 50px; }
+  .h-name { font-size: 0.7rem; }
+  .h-detail, .h-odds-mini { display: none; }
+  .horse-info { min-width: 70px; }
+  .progress-hud { grid-template-columns: 1fr 1fr; }
+  .progress-hud .hud-block:nth-child(2) { grid-column: 1 / -1; order: 99; }
+  .countdown-num { font-size: 9rem; }
+  .countdown-num.go { font-size: 7rem; }
+}
+
+/* ═══════════════════ LOGIN OVERLAY ═══════════════════ */
+.login-overlay {
+  display: none; position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(214,24,44,0.18) 0%, rgba(2,2,3,0.97) 60%),
+    linear-gradient(135deg, #050608 0%, #0a0d12 100%);
+  z-index: 500; align-items: center; justify-content: center; padding: 1rem;
+}
+.login-overlay.show { display: flex; animation: mfade 0.5s ease; }
+.login-box { max-width: 440px; width: 100%; text-align: center; }
+.login-logo {
+  font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 0.04em;
+  color: white; margin-bottom: 0.3rem;
+  display: flex; align-items: baseline; gap: 0.4rem; justify-content: center;
+}
+.login-logo::before {
+  content: ''; width: 28px; height: 28px;
+  background: radial-gradient(circle at 30% 30%, #ffe680, var(--rt-yellow));
+  border-radius: 50%; display: inline-block; margin-right: 0.2rem;
+  position: relative; top: 5px;
+}
+.login-logo span { color: var(--rt-yellow); font-size: 1.5rem; }
+.login-pretitle {
+  font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--rt-dim); margin-bottom: 1.8rem;
+}
+.login-form-box {
+  background: linear-gradient(180deg, var(--rt-grey) 0%, #101216 100%);
+  border: 1px solid var(--rt-border); border-radius: 10px;
+  padding: 1.8rem 1.6rem;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04);
+  text-align: left;
+}
+.login-field { margin-bottom: 1.2rem; }
+.login-field label {
+  font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.2em; color: var(--rt-dim); text-transform: uppercase;
+  display: block; margin-bottom: 0.4rem;
+}
+.login-field input {
+  width: 100%; background: var(--rt-darker); border: 1px solid var(--rt-border);
+  border-radius: 4px; color: var(--rt-text);
+  font-family: 'Oswald', sans-serif; font-size: 1rem;
+  padding: 0.7rem 0.9rem; outline: none; transition: border-color 0.2s;
+}
+.login-field input:focus { border-color: var(--rt-yellow); }
+.login-field input::placeholder { color: #3a3f4a; }
+.login-games-label {
+  font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.2em; color: var(--rt-dim); text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.game-card {
+  background: linear-gradient(135deg, #1a0a00, #2d1400);
+  border: 2px solid var(--rt-yellow); border-radius: 8px;
+  padding: 1rem 1.2rem; position: relative; overflow: hidden;
+  box-shadow: 0 0 24px rgba(255,210,48,0.2); margin-bottom: 1.2rem;
+}
+.game-icon { font-size: 2rem; margin-bottom: 0.3rem; }
+.game-name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+  color: white; letter-spacing: 0.04em; line-height: 1;
+}
+.game-desc { font-size: 0.85rem; color: var(--rt-yellow); margin-top: 0.3rem; }
+.game-badge {
+  position: absolute; top: 0.7rem; right: 0.9rem;
+  background: var(--rt-red); color: white;
+  font-family: 'Oswald', sans-serif; font-size: 0.62rem;
+  letter-spacing: 0.15em; padding: 0.2rem 0.5rem; border-radius: 2px;
+  animation: badgepulse 2s ease infinite;
+}
+.btn-login {
+  width: 100%; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem;
+  letter-spacing: 0.15em;
+  background: linear-gradient(180deg, var(--rt-red) 0%, var(--rt-red2) 100%);
+  color: white; border: none; border-radius: 5px;
+  cursor: pointer; padding: 0.9rem;
+  box-shadow: 0 4px 20px rgba(214,24,44,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+  transition: all 0.2s; position: relative; overflow: hidden;
+}
+.btn-login:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(214,24,44,0.7); }
+.btn-login::before {
+  content: ''; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%;
+  background: rgba(255,255,255,0.18); transform: skewX(-20deg); transition: left 0.4s;
+}
+.btn-login:hover::before { left: 140%; }
+
+/* ═══════════════════ STAKE SELECTOR ═══════════════════ */
+.stake-selector {
+  background: var(--rt-darker); border: 1px solid var(--rt-border);
+  border-radius: 4px; padding: 0.5rem 0.7rem;
+  display: flex; flex-direction: column; gap: 0.3rem; min-width: 150px;
+}
+.stake-selector .stake-label {
+  font-family: 'Oswald', sans-serif; font-size: 0.6rem;
+  letter-spacing: 0.12em; color: var(--rt-dim); text-transform: uppercase;
+}
+.stake-btns { display: flex; gap: 0.3rem; }
+.stake-btn {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700;
+  background: var(--rt-mgrey); color: var(--rt-dim);
+  border: 1px solid var(--rt-border); border-radius: 3px;
+  padding: 0.28rem 0.4rem; cursor: pointer; transition: all 0.15s; flex: 1;
+}
+.stake-btn:hover:not(:disabled) { background: #3a3f4a; color: var(--rt-text); }
+.stake-btn.active {
+  background: rgba(255,210,48,0.12); color: var(--rt-yellow);
+  border-color: var(--rt-yellow); box-shadow: 0 0 6px rgba(255,210,48,0.2);
+}
+.stake-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.stake-potential { font-size: 0.65rem; color: var(--rt-dim); font-family: 'Oswald', sans-serif; }
+
+/* countdown sub-label */
+.countdown-sub {
+  font-family: 'Oswald', sans-serif; font-size: 0.95rem;
+  letter-spacing: 0.25em; color: rgba(255,255,255,0.45);
+  text-transform: uppercase; margin-top: 0.4rem; text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="login-overlay show" id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">RIKSTOTO<span>LIVE</span></div>
+    <div class="login-pretitle">Bursdagskveldens Travspill — 2025</div>
+    <div class="login-form-box">
+      <div class="login-field">
+        <label>Ditt navn</label>
+        <input type="text" id="playerNameInput" placeholder="Skriv inn navn..." maxlength="22"
+          onkeydown="if(event.key==='Enter')handleLogin()">
+      </div>
+      <div class="login-games-label">Velg spill</div>
+      <div class="game-card">
+        <div class="game-badge">● LIVE NÅ</div>
+        <div class="game-icon">🏇</div>
+        <div class="game-name">GIGA LØPET</div>
+        <div class="game-desc">Premie: Bursdagsgave til Roy 🎁</div>
+      </div>
+      <button class="btn-login" onclick="handleLogin()">SPILL NÅ →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">RIKSTOTO<span>LIVE</span></div>
+    <nav class="topbar-nav">
+      <span class="topbar-nav-item">Spill</span>
+      <span class="topbar-nav-item active">Live</span>
+      <span class="topbar-nav-item">Resultater</span>
+      <span class="topbar-nav-item">Baner</span>
+    </nav>
+  </div>
+  <div class="topbar-right">
+    <div class="live-indicator">
+      <span class="live-dot"></span>
+      <span class="live-text">LIVE</span>
+    </div>
+    <div class="balance-pill" id="playerPill" style="display:none">
+      <span class="label">👤</span><span id="playerDisplay">—</span>
+    </div>
+    <div class="balance-pill"><span class="label">Saldo:</span>1 000 kr</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="badge badge-red badge-pulse">V75 — LØP 7</span>
+      <span class="badge badge-green">TRAV · AUTOSTART</span>
+      <span class="badge badge-gold">⭐ BURSDAGSSPESIAL</span>
+      <span class="badge badge-grey">BJERKE TRAVBANE · 19:40</span>
+    </div>
+    <div class="hero-title-row">
+      <div class="hero-title-block">
+        <div class="hero-pretitle">Kveldens hovedløp <span class="sep">●</span> Direktesendt</div>
+        <h1 class="hero-title">BURSDAGSLØPET<br><em>ROY 2025</em></h1>
+        <div class="hero-subtitle">Det største løpet i norsk travhistorie — én kveld, én sjanse, én bursdagsgave på spill.</div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-label">Distanse</div>
+          <div class="stat-value">2100<span style="font-size:0.7em;color:var(--rt-dim)">m</span></div>
+          <div class="stat-sub">Auto · 8 hester</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Premiepott</div>
+          <div class="stat-value" style="color:#ff6b6b">❤️</div>
+          <div class="stat-sub">Bursdagsgave</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Vær</div>
+          <div class="stat-value">5°C</div>
+          <div class="stat-sub">Skyfritt · Tørt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <span class="status-icon">⏱ STATUS</span>
+  <span class="status-text" id="statusText">Velg favoritten din nedenfor — løpet starter på din kommando.</span>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="layout">
+    <!-- LEFT COLUMN -->
+    <div>
+      <!-- PROGRESS HUD -->
+      <div class="progress-hud">
+        <div class="hud-block">
+          <div class="hud-label">Distanse</div>
+          <div class="hud-value" id="hudDist">0 / 2100m</div>
+        </div>
+        <div class="hud-block" style="grid-column: 2 / 3">
+          <div class="hud-label">Fremdrift</div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progFill"></div>
+              <div class="progress-ticks">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hud-block">
+          <div class="hud-label">Tid</div>
+          <div class="hud-value" id="hudTime">0:00</div>
+        </div>
+        <div class="hud-block">
+          <div class="hud-label">Fart</div>
+          <div class="hud-value" id="hudSpeed">— km/t</div>
+        </div>
+      </div>
+
+      <!-- TRACK -->
+      <div class="track-section">
+        <div class="track-outer" id="trackOuter">
+          <div class="track-header">
+            <span class="th-num">LØP 7</span>
+            <span class="th-active">● POSISJON</span>
+            <span class="spacer"></span>
+            <span>← START</span>
+            <span class="th-finish">MÅL →</span>
+          </div>
+          <div class="track-body" id="lanesCont">
+            <div class="start-gate" id="startGate"></div>
+          </div>
+        </div>
+
+        <!-- ODDS CARDS -->
+        <div class="odds-section" id="oddsSection"></div>
+      </div>
+
+      <!-- ACTION BAR -->
+      <div class="action-bar">
+        <div class="stake-selector">
+          <div class="stake-label">Innsats (kr)</div>
+          <div class="stake-btns">
+            <button class="stake-btn" id="stake-50"  onclick="selectStake(50)">50</button>
+            <button class="stake-btn active" id="stake-100" onclick="selectStake(100)">100</button>
+            <button class="stake-btn" id="stake-200" onclick="selectStake(200)">200</button>
+            <button class="stake-btn" id="stake-500" onclick="selectStake(500)">500</button>
+          </div>
+          <div class="stake-potential" id="potentialWin">— kr ved seier</div>
+        </div>
+        <button class="btn-start" id="startBtn" onclick="initiateRace()" disabled>
+          <span class="btn-icon">🏁</span>START LØPET
+        </button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- COMMENTARY PANEL -->
+      <div class="panel">
+        <div class="panel-header">
+          <span><span class="ph-icon">🎙</span> KOMMENTATOR</span>
+          <span style="color:var(--rt-dim);font-size:0.62rem">BJØRN HANSEN</span>
+        </div>
+        <div class="commentary-text">
+          <div class="text-content" id="commentary">Velg din favoritt og legg inn veddemålet — det største løpet i norsk travhistorie er klart for start!</div>
+        </div>
+      </div>
+
+      <!-- LEADERBOARD -->
+      <div class="panel" id="leaderboardPanel" style="display:none">
+        <div class="panel-header">
+          <span><span class="ph-icon">📊</span> LIVE-STILLING</span>
+          <span style="color:var(--rt-yellow);font-size:0.62rem" id="lbStatus">PÅGÅR</span>
+        </div>
+        <div id="lbRows"></div>
+      </div>
+
+      <!-- POOL STATS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span><span class="ph-icon">💰</span> SPILL & PUTTER</span>
+        </div>
+        <div class="pool-grid">
+          <div class="pool-cell">
+            <div class="pool-label">Total omsetning</div>
+            <div class="pool-value">2.4 mill</div>
+          </div>
+          <div class="pool-cell">
+            <div class="pool-label">Antall spillere</div>
+            <div class="pool-value">8 142</div>
+          </div>
+          <div class="pool-cell">
+            <div class="pool-label">Mest spilte</div>
+            <div class="pool-value" id="mostBet">Hest #1</div>
+          </div>
+          <div class="pool-cell">
+            <div class="pool-label">Største odds</div>
+            <div class="pool-value">14.00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRACK INFO -->
+      <div class="panel">
+        <div class="panel-header">
+          <span><span class="ph-icon">📍</span> BANEINFO</span>
+        </div>
+        <div style="padding: 0.7rem 0.9rem; font-size: 0.78rem; line-height: 1.6; color: var(--rt-dim)">
+          <strong style="color:var(--rt-text)">Bjerke Travbane</strong><br>
+          Underlag: <span style="color:var(--rt-text)">Tørt</span> · Bane: <span style="color:var(--rt-text)">Rask</span><br>
+          Vind: 2 m/s NV · Sikt: <span style="color:var(--rt-text)">Utmerket</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- COUNTDOWN OVERLAY -->
+<div class="countdown-overlay" id="countdown">
+  <div style="text-align:center">
+    <div class="countdown-num" id="countdownNum">3</div>
+    <div class="countdown-sub" id="countdownSub"></div>
+  </div>
+</div>
+
+<!-- RESULT MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="modal-header" id="mHeader">
+      <div class="modal-emoji" id="mEmoji"></div>
+      <div class="modal-result-label">OFFISIELT RESULTAT — BURSDAGSLØPET 2025</div>
+      <div class="modal-result-heading" id="mHeading"></div>
+      <div class="modal-result-sub" id="mSub"></div>
+    </div>
+    <div class="modal-podium">
+      <div class="podium-title">🏆 SLUTTRESULTAT</div>
+      <div id="mPodium"></div>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+    <div class="modal-actions">
+      <button class="btn-modal btn-modal-secondary" onclick="closeModal()">✕ LUKK</button>
+      <button class="btn-modal btn-modal-primary" onclick="restart()">🔄 NYTT LØP</button>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">RIKSTOTO ⚡ LIVE</div>
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   ⚙️  KONFIGURASJON — TILPASS HER!
+═══════════════════════════════════════════════════ */
+const HORSES = [
+  { id:1, name:"Kongen Roy",        driver:"R. Jubileum",    color:"#d6182c", odds:"3.20",  spd:0.95, form:"1-2-1-1-2" },
+  { id:2, name:"Thai Ørjan",        driver:"Ø. Egeland",     color:"#2d8acc", odds:"4.50",  spd:0.91, form:"2-1-3-2-1" },
+  { id:3, name:"Marens Express",    driver:"M. Bjerketrav",  color:"#ffb800", odds:"5.80",  spd:0.88, form:"1-3-2-1-3" },
+  { id:4, name:"Viking Henrik",     driver:"H. Dalvegen",    color:"#1a9647", odds:"7.00",  spd:0.85, form:"3-2-4-1-2" },
+  { id:5, name:"Lady Ida",          driver:"I. Elisabetsen", color:"#9b3dc7", odds:"9.00",  spd:0.82, form:"4-3-1-5-2" },
+  { id:6, name:"Grande Lena",       driver:"L. Kronhansen",  color:"#e6862b", odds:"11.00", spd:0.79, form:"5-4-3-2-4" },
+  { id:7, name:"Baron Fryderyk",    driver:"F. Ryttersen",   color:"#00b5a3", odds:"13.00", spd:0.77, form:"6-5-4-3-5" },
+  { id:8, name:"Anne-Marie Star",   driver:"A. Sulkevik",    color:"#e0427a", odds:"16.00", spd:0.75, form:"7-6-5-4-6" },
+];
+
+// ✏️ ENDRE GAVEN HER:
+const GIFT_TEXT = `Gratulerer med dagen, pappa Roy! 🎂<br><br>
+Din bursdagsgave er: <strong>[SKRIV GAVEN HER]</strong> 🎁<br><br>
+Vi er utrolig glad i deg! ❤️`;
+
+const RACE_MS = 42000;   // ~42 sek løp — lenger og mer dramatisk
+const TOTAL_M = 2100;
+/* ═══════════════════════════════════════════════════ */
+
+const COMMENTS = [
+  l => `<span class="hi">DE ER AV GÅRDE!</span> Autostart aktivert — 8 hester eksploderer ut av startgaten i 2100-meters drama!`,
+  l => `<span class="hi">${l}</span> tar tidlig ledelsen — viser superb form fra startfeltet!`,
+  l => `200 meter inn — <span class="hi">${l}</span> dikterer tempoet i et meget tett felt her på Bjerke!`,
+  l => `Det går unna! <span class="hi">${l}</span> beholder pole position — feltet samler seg bakfra!`,
+  l => `<span class="hi-red">HALVVEIS — 1050m!</span> <span class="hi">${l}</span> i front, men det presses fra alle kanter nå!`,
+  l => `Drama på Bjerke! Posisjonene endrer seg — <span class="hi">${l}</span> kjemper mot hardt press!`,
+  l => `<span class="hi-red">700 METER IGJEN!</span> <span class="hi">${l}</span> — publikum reiser seg, dette blir thriller!`,
+  l => `Innspurten er i gang! 500 meter — <span class="hi">${l}</span> piskes frem av kuskens hånd!`,
+  l => `<span class="hi-red">300 METER!</span> <span class="hi">${l}</span> — voldsom kamp, hvem tar det??`,
+  l => `<span class="hi-red">100 METER!</span> Det er <span class="hi">${l}</span> som leder — men feltet kommer som tordenvær!`,
+  l => `<span class="hi-red">MÅL!</span> <span class="hi">${l}</span> krysser mållinjen — fantastiske scener!`,
+];
+
+let selId=null, racing=false, animId=null, resultShown=false;
+let positions={}, finished=[], mods={}, surges={}, secondSurges={};
+let raceStart=null, commentIdx=0;
+let lastSpeed = 0;
+let stakeAmount = 100;
+let playerName = '';
+
+function buildTrack() {
+  const cont = document.getElementById('lanesCont');
+  // finish line
+  const fl = document.createElement('div');
+  fl.className = 'finish-marker';
+  fl.innerHTML = '<span class="finish-flag">MÅL</span>';
+  cont.appendChild(fl);
+
+  HORSES.forEach(h => {
+    positions[h.id] = 46;
+    const lane = document.createElement('div');
+    lane.className = 'lane'; lane.id = `lane-${h.id}`;
+    lane.innerHTML = `
+      <div class="lane-num-col">
+        <div class="lane-num" style="color:white;background:linear-gradient(135deg,${h.color},${shade(h.color,-20)});border-color:${h.color};">${h.id}</div>
+      </div>
+      <div class="horse-wrap" id="hw-${h.id}" style="left:46px">
+        <div class="speed-lines"></div>
+        ${makeSulky(h.color, h.id)}
+      </div>
+      <div class="horse-info">
+        <div class="h-name">${h.name}</div>
+        <div class="h-detail">${h.driver}</div>
+        <div class="h-odds-mini">${h.odds}</div>
+      </div>`;
+    cont.appendChild(lane);
+  });
+}
+
+function shade(hex, percent) {
+  const num = parseInt(hex.replace('#',''),16);
+  const amt = Math.round(2.55 * percent);
+  const R = (num >> 16) + amt;
+  const G = ((num >> 8) & 0x00FF) + amt;
+  const B = (num & 0x0000FF) + amt;
+  return '#' + (0x1000000 + (Math.max(0,Math.min(255,R))<<16) + (Math.max(0,Math.min(255,G))<<8) + Math.max(0,Math.min(255,B))).toString(16).slice(1);
+}
+
+function makeSulky(col, num) {
+  const jColors = ['#e01a30','#1a6db8','#e09a10','#149647','#7b259e','#cc6610','#009e8e','#c43070'];
+  const jc = jColors[num-1];
+  const jcLight = shade(jc, 25);
+  return `<svg class="horse-svg" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hgrad-${num}" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="${shade(col,15)}"/>
+      <stop offset="50%" stop-color="${col}"/>
+      <stop offset="100%" stop-color="${shade(col,-15)}"/>
+    </linearGradient>
+    <linearGradient id="jgrad-${num}" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="${jcLight}"/>
+      <stop offset="100%" stop-color="${jc}"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow under -->
+  <ellipse cx="45" cy="56" rx="38" ry="2.5" fill="rgba(0,0,0,0.3)"/>
+
+  <!-- LEFT WHEEL -->
+  <g>
+    <circle cx="14" cy="46" r="10" fill="none" stroke="#888" stroke-width="2.5"/>
+    <circle cx="14" cy="46" r="2.5" fill="#aaa"/>
+    <line x1="14" y1="36" x2="14" y2="56" stroke="#888" stroke-width="1.6"/>
+    <line x1="4" y1="46" x2="24" y2="46" stroke="#888" stroke-width="1.6"/>
+    <line x1="7" y1="38" x2="21" y2="54" stroke="#888" stroke-width="1.2"/>
+    <line x1="21" y1="38" x2="7" y2="54" stroke="#888" stroke-width="1.2"/>
+  </g>
+
+  <!-- RIGHT WHEEL -->
+  <g>
+    <circle cx="38" cy="46" r="10" fill="none" stroke="#888" stroke-width="2.5"/>
+    <circle cx="38" cy="46" r="2.5" fill="#aaa"/>
+    <line x1="38" y1="36" x2="38" y2="56" stroke="#888" stroke-width="1.6"/>
+    <line x1="28" y1="46" x2="48" y2="46" stroke="#888" stroke-width="1.6"/>
+    <line x1="31" y1="38" x2="45" y2="54" stroke="#888" stroke-width="1.2"/>
+    <line x1="45" y1="38" x2="31" y2="54" stroke="#888" stroke-width="1.2"/>
+  </g>
+
+  <!-- SHAFTS (sulky frame) -->
+  <line x1="15" y1="42" x2="64" y2="32" stroke="#a0a0a0" stroke-width="2"/>
+  <line x1="38" y1="42" x2="68" y2="34" stroke="#a0a0a0" stroke-width="2"/>
+  <line x1="20" y1="40" x2="64" y2="32" stroke="#777" stroke-width="1.2"/>
+
+  <!-- SEAT -->
+  <rect x="9" y="29" width="32" height="9" rx="3" fill="#1a1a1a"/>
+  <rect x="11" y="26" width="28" height="5" rx="2" fill="#2a2a2a"/>
+  <rect x="11" y="27" width="28" height="2" rx="1" fill="#3a3a3a"/>
+  <!-- Seat stripe (color of stable) -->
+  <rect x="13" y="33" width="24" height="2" fill="${col}"/>
+
+  <!-- DRIVER -->
+  <g class="driver-body">
+    <!-- Body / silks -->
+    <ellipse cx="26" cy="22" rx="7.5" ry="6" fill="url(#jgrad-${num})"/>
+    <!-- Number on silks -->
+    <text x="26" y="25" text-anchor="middle" font-family="Bebas Neue, sans-serif" font-size="7" font-weight="700" fill="white" stroke="rgba(0,0,0,0.3)" stroke-width="0.3">${num}</text>
+    <!-- Helmet -->
+    <ellipse cx="26" cy="14" rx="6" ry="5" fill="${jc}"/>
+    <ellipse cx="26" cy="13" rx="5" ry="4" fill="${jcLight}"/>
+    <rect x="20" y="17" width="12" height="3.5" rx="1.5" fill="${jc}"/>
+    <!-- Visor -->
+    <path d="M20.5 18.5 Q26 22.5 31.5 18.5 L31 17.5 Q26 21 21 17.5 Z" fill="rgba(0,0,0,0.5)"/>
+    <!-- Face -->
+    <ellipse cx="26" cy="16" rx="4.2" ry="3.5" fill="#f4c18a"/>
+    <ellipse cx="26" cy="17" rx="3" ry="1" fill="rgba(0,0,0,0.1)"/>
+    <!-- Reins -->
+    <path d="M22 26 Q42 26 64 27" stroke="#6b4020" stroke-width="1.4" fill="none"/>
+    <path d="M30 26 Q48 27 68 28" stroke="#6b4020" stroke-width="1.4" fill="none"/>
+    <!-- Whip -->
+    <line x1="32" y1="18" x2="42" y2="6" stroke="#3d2208" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="42" cy="6" r="1" fill="#5a3010"/>
+  </g>
+
+  <!-- HORSE BODY -->
+  <ellipse cx="68" cy="32" rx="16" ry="10" fill="url(#hgrad-${num})"/>
+  <!-- Body shading -->
+  <ellipse cx="68" cy="28" rx="14" ry="3" fill="rgba(255,255,255,0.1)"/>
+  <ellipse cx="68" cy="38" rx="14" ry="2" fill="rgba(0,0,0,0.2)"/>
+
+  <!-- NECK -->
+  <path d="M78 24 Q83 16 81 9" stroke="url(#hgrad-${num})" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- Neck shading -->
+  <path d="M77 23 Q82 15 80 8" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- HEAD -->
+  <ellipse cx="83" cy="9" rx="6.5" ry="4" fill="${col}" transform="rotate(-15 83 9)"/>
+  <!-- head shading -->
+  <ellipse cx="82" cy="7.5" rx="3" ry="1.5" fill="rgba(255,255,255,0.15)" transform="rotate(-15 82 7.5)"/>
+
+  <!-- EARS -->
+  <path d="M85 5.5 L87 2 L87.5 5.5 Z" fill="${col}"/>
+  <path d="M86.5 5 L87 3 L87 5 Z" fill="rgba(0,0,0,0.3)"/>
+
+  <!-- MANE (animated) -->
+  <g class="horse-mane">
+    <path d="M81 14 Q78 19 75 22" stroke="#3a1a04" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M79 16 Q76 20 73 23" stroke="#2a1004" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M77 18 Q74 22 71 25" stroke="#3a1a04" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- EYE -->
+  <ellipse cx="85.5" cy="8" rx="1.4" ry="1.1" fill="white"/>
+  <circle cx="85.5" cy="8" r="0.9" fill="#1a0d00"/>
+  <circle cx="85.7" cy="7.7" r="0.3" fill="white"/>
+
+  <!-- NOSTRIL -->
+  <ellipse cx="87" cy="11" rx="1" ry="0.8" fill="#3a1a04"/>
+
+  <!-- BRIDLE -->
+  <path d="M80 7 Q86 9 88 13" stroke="#5a3010" stroke-width="0.8" fill="none"/>
+  <path d="M82 6 L82.5 13" stroke="#5a3010" stroke-width="0.8"/>
+
+  <!-- TAIL (animated) -->
+  <g class="horse-tail">
+    <path d="M52 32 Q44 27 46 36 Q48 44 53 40 Q50 38 51 33" fill="${col}" stroke="#2a1004" stroke-width="1"/>
+    <path d="M50 34 Q43 32 44 38" fill="none" stroke="#2a1004" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- LEGS -->
+  <g class="leg leg-fl" transform-origin="76 40">
+    <line x1="76" y1="40" x2="74" y2="56" stroke="${col}" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="76" y1="40" x2="74" y2="52" stroke="${shade(col,15)}" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="71.5" y="54" width="6" height="3.5" rx="1.5" fill="#0d0500"/>
+  </g>
+  <g class="leg leg-fr" transform-origin="72 40">
+    <line x1="72" y1="40" x2="77" y2="56" stroke="${col}" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="72" y1="40" x2="76" y2="52" stroke="${shade(col,15)}" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="74.5" y="54" width="6" height="3.5" rx="1.5" fill="#0d0500"/>
+  </g>
+  <g class="leg leg-hl" transform-origin="60 40">
+    <line x1="60" y1="40" x2="58" y2="56" stroke="${col}" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="60" y1="40" x2="58" y2="52" stroke="${shade(col,15)}" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="55.5" y="54" width="6" height="3.5" rx="1.5" fill="#0d0500"/>
+  </g>
+  <g class="leg leg-hr" transform-origin="56 40">
+    <line x1="56" y1="40" x2="61" y2="56" stroke="${col}" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="56" y1="40" x2="60" y2="52" stroke="${shade(col,15)}" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="58.5" y="54" width="6" height="3.5" rx="1.5" fill="#0d0500"/>
+  </g>
+</svg>`;
+}
+
+function buildCards() {
+  const sec = document.getElementById('oddsSection');
+  HORSES.forEach(h => {
+    const card = document.createElement('div');
+    card.className = 'odds-card'; card.id = `oc-${h.id}`;
+    card.innerHTML = `
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,${h.color},${shade(h.color,15)})"></div>
+      <div class="check-mark">✓</div>
+      <div class="oc-top">
+        <div class="oc-num" style="color:${h.color}">${h.id}</div>
+        <div class="oc-name">${h.name}</div>
+      </div>
+      <div class="oc-mid">
+        <div class="oc-driver">${h.driver}</div>
+        <div class="oc-form">${h.form}</div>
+      </div>
+      <div class="oc-bottom">
+        <div class="oc-odds-label">ODDS</div>
+        <div class="oc-odds">${h.odds}</div>
+      </div>`;
+    card.onclick = () => selectHorse(h.id);
+    sec.appendChild(card);
+  });
+}
+
+function buildTicker() {
+  const horseTexts = HORSES.map(h=>`<span>${h.id} ${h.name} <span class="t-hi">${h.odds}</span></span>`).join('');
+  const extras = `
+    <span class="t-pulse">● LIVE NÅ</span>
+    <span class="t-hi">BURSDAGSLØPET ROY 2025</span>
+    <span>BJERKE TRAVBANE · 19:40</span>
+    <span>DISTANSE 2100m AUTO</span>
+    <span class="t-hi">V75 LØP 7</span>
+    <span>OMSETNING 2.4 MILL</span>
+    <span class="t-pulse">8 142 SPILLERE</span>
+  `;
+  document.getElementById('ticker').innerHTML = horseTexts + extras + horseTexts;
+}
+
+function selectHorse(id) {
+  if (racing) return;
+  selId = id;
+  document.querySelectorAll('.odds-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById(`oc-${id}`).classList.add('selected');
+  document.getElementById('startBtn').disabled = false;
+  const h = HORSES[id-1];
+  setComm(`Du satser <strong style="color:var(--rt-yellow)">${stakeAmount} kr</strong> på <span class="hi">${h.name}</span> til odds <span class="hi">${h.odds}</span>. Et utmerket valg — trykk start for å se om du blir bursdagshelten!`);
+
+  // Show potential winnings
+  const win = (parseFloat(h.odds) * stakeAmount).toFixed(0);
+  document.getElementById('potentialWin').textContent = `→ ${win} kr ved seier`;
+  document.getElementById('mostBet').textContent = h.name;
+
+  setStatus(`Du har valgt <strong style="color:var(--rt-yellow)">${h.name}</strong> — klar for start!`);
+}
+
+function setComm(html) {
+  document.getElementById('commentary').innerHTML = html;
+}
+function setStatus(html) {
+  document.getElementById('statusText').innerHTML = html;
+}
+
+function updateLB() {
+  const fw = finishX();
+  const sorted = HORSES.slice().sort((a,b)=>positions[b.id]-positions[a.id]);
+  const cont = document.getElementById('lbRows');
+  cont.innerHTML = '';
+  sorted.forEach((h,i) => {
+    const pct = Math.min(100, Math.round((positions[h.id]/fw)*100));
+    const posClass = i===0?'p1':i===1?'p2':i===2?'p3':'';
+    const isUserPick = h.id === selId;
+    const row = document.createElement('div');
+    row.className = 'lb-row' + (isUserPick ? ' user-pick' : '');
+    row.innerHTML = `
+      <div class="lb-pos ${posClass}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</div>
+      <div class="lb-num" style="color:${h.color}">${h.id}</div>
+      <div class="lb-name">${h.name}${isUserPick?' <span style="color:var(--rt-yellow);font-size:0.65rem">★</span>':''}</div>
+      <div class="lb-bar-wrap">
+        <div class="lb-bar"><div class="lb-bar-fill" style="width:${pct}%;background:${h.color};color:${h.color}"></div></div>
+      </div>
+      <div class="lb-pct">${pct}%</div>`;
+    cont.appendChild(row);
+  });
+}
+
+function finishX() { return document.getElementById('trackOuter').offsetWidth - 70; }
+
+function getLeader() { return HORSES.slice().sort((a,b)=>positions[b.id]-positions[a.id])[0].name; }
+
+function initiateRace() {
+  if (!selId || racing) return;
+  document.getElementById('startBtn').disabled = true;
+  document.querySelectorAll('.odds-card').forEach(c => c.style.pointerEvents='none');
+  document.querySelectorAll('.stake-btn').forEach(b => b.disabled = true);
+  startCountdown();
+}
+
+function startCountdown() {
+  const overlay = document.getElementById('countdown');
+  const num = document.getElementById('countdownNum');
+  const sub = document.getElementById('countdownSub');
+  const horse = selId ? HORSES[selId-1] : null;
+  if (horse) sub.textContent = horse.name;
+
+  function showNum(text, isGo) {
+    num.className = '';
+    void num.offsetWidth; // force reflow to restart animation
+    num.textContent = text;
+    num.className = isGo ? 'countdown-num go' : 'countdown-num';
+  }
+
+  overlay.classList.add('show');
+  let i = 3;
+  showNum('3', false);
+
+  const interval = setInterval(() => {
+    i--;
+    if (i === 0) {
+      showNum('GO!', true);
+    } else if (i < 0) {
+      clearInterval(interval);
+      overlay.classList.remove('show');
+      startRace();
+    } else {
+      showNum(i.toString(), false);
+    }
+  }, 1000);
+}
+
+function startRace() {
+  racing = true; resultShown = false; finished = []; commentIdx = 0;
+  document.getElementById('trackOuter').classList.add('race-running');
+  document.getElementById('leaderboardPanel').style.display = 'block';
+  document.getElementById('startGate').style.opacity = '0';
+  document.getElementById('startGate').style.transform = 'translateY(-50%) scaleY(0.1)';
+
+  HORSES.forEach(h => {
+    mods[h.id] = 0.93 + Math.random()*0.14;
+    surges[h.id] = 0.20 + Math.random()*0.30;
+    secondSurges[h.id] = 0.65 + Math.random()*0.25;
+  });
+
+  raceStart = performance.now();
+  let lastFrame = raceStart;
+  const thresholds = [0, 8, 18, 30, 45, 58, 70, 80, 88, 95, 99];
+
+  setComm(`<span class="hi">DE ER AV GÅRDE!</span> Autostart aktivert — 8 hester i full galopp ut av startfeltet!`);
+  setStatus('● RACE PÅGÅR — 2100m igjen til finalen!');
+  setTimeout(()=>setComm(COMMENTS[0](getLeader())), 100);
+
+  let lbTick = 0;
+
+  function frame(now) {
+    const elapsed = now - raceStart;
+    const delta = now - lastFrame; lastFrame = now;
+    const t = Math.min(elapsed / RACE_MS, 1);
+    const fw = finishX();
+
+    // HUD updates
+    const distM = Math.round(t * TOTAL_M);
+    document.getElementById('progFill').style.width = (t*100) + '%';
+    document.getElementById('hudDist').textContent = distM + ' / 2100m';
+    const sec = Math.floor(elapsed/1000);
+    document.getElementById('hudTime').textContent = `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`;
+    // approx speed (50 km/t at full pace)
+    const leader = HORSES.slice().sort((a,b)=>positions[b.id]-positions[a.id])[0];
+    const speedKmh = Math.round(48 + (leader.spd * mods[leader.id] * 8) + Math.random()*3);
+    document.getElementById('hudSpeed').textContent = speedKmh + ' km/t';
+
+    HORSES.forEach(h => {
+      if (finished.includes(h.id)) return;
+      const tPct = t * 100;
+
+      // Two surge windows
+      const inSurge1 = tPct >= surges[h.id]*100 && tPct < surges[h.id]*100 + 7;
+      const inSurge2 = tPct >= secondSurges[h.id]*100 && tPct < secondSurges[h.id]*100 + 6;
+      const surge = inSurge1 ? 1.32 : inSurge2 ? 1.25 : 1.0;
+      // Late fade: leaders ease slightly so race stays close
+      const lateFade = (tPct > 88 && positions[h.id]/fw > 0.92) ? 0.93 : 1.0;
+      // Final kick at 90%+: random horses get a final push
+      const finalKick = (tPct > 90 && Math.random() < 0.05) ? 1.15 : 1.0;
+      const jitter = (Math.random()-0.5)*1.4;
+      const baseAdv = (fw-46) / (RACE_MS/16.67);
+      const adv = baseAdv * h.spd * mods[h.id] * surge * lateFade * finalKick + jitter;
+      positions[h.id] = Math.min(positions[h.id]+adv, fw);
+
+      const hw = document.getElementById(`hw-${h.id}`);
+      if (hw) {
+        hw.style.left = positions[h.id]+'px';
+        if ((inSurge1 || inSurge2) && !hw.classList.contains('boost-active')) {
+          hw.classList.add('boost-active');
+          setTimeout(()=>hw.classList.remove('boost-active'), 400);
+        }
+      }
+
+      // Dust
+      if (Math.random()<0.07 && hw) {
+        const d = document.createElement('div');
+        d.className = 'dust-puff';
+        d.style.left = (positions[h.id]-15)+'px';
+        d.style.top  = (35 + (h.id-1)*70 + 30)+'px';
+        document.getElementById('lanesCont').appendChild(d);
+        setTimeout(()=>d.remove(), 600);
+      }
+
+      if (positions[h.id] >= fw) {
+        finished.push(h.id);
+        if (hw) hw.classList.add('finished');
+      }
+    });
+
+    // commentary
+    const tPct = t*100;
+    if (commentIdx < thresholds.length && tPct >= thresholds[commentIdx]) {
+      setComm(COMMENTS[commentIdx](getLeader()));
+      commentIdx++;
+    }
+
+    // status updates with distance remaining
+    if (Math.floor(elapsed/2000) !== Math.floor((elapsed-delta)/2000)) {
+      const remaining = TOTAL_M - distM;
+      const lead = HORSES.slice().sort((a,b)=>positions[b.id]-positions[a.id])[0];
+      setStatus(`● <span style="color:var(--rt-yellow)">${lead.name}</span> leder · ${remaining}m igjen til mål`);
+    }
+
+    if (++lbTick % 6 === 0) updateLB();
+
+    if (finished.length > 0 && !resultShown) {
+      resultShown = true;
+      setTimeout(() => {
+        cancelAnimationFrame(animId);
+        showResult();
+      }, 2400);
+    }
+
+    if (!resultShown || finished.length < HORSES.length) {
+      animId = requestAnimationFrame(frame);
+    }
+  }
+  animId = requestAnimationFrame(frame);
+}
+
+function showResult() {
+  // complete order
+  const rem = HORSES.filter(h=>!finished.includes(h.id)).sort((a,b)=>positions[b.id]-positions[a.id]);
+  rem.forEach(h=>finished.push(h.id));
+  updateLB();
+
+  document.getElementById('lbStatus').textContent = 'AVSLUTTET';
+  document.getElementById('trackOuter').classList.remove('race-running');
+
+  const winnerId = finished[0];
+  const won = winnerId === selId;
+  const winner = HORSES[winnerId-1];
+  const chosen = HORSES[selId-1];
+
+  // podium
+  const medals = ['🥇','🥈','🥉'];
+  const posClass = ['g','s','b'];
+  const baseTimes = [['1:14','1:14','1:14'][0], '1:14', '1:14'];
+  const podiumHTML = finished.slice(0,3).map((id,i)=>{
+    const h = HORSES[id-1];
+    const baseSec = 78 + i + Math.floor(Math.random()*2);
+    const tenths = Math.floor(Math.random()*9);
+    const tt = `1.${baseSec}.${tenths}`;
+    return `<div class="podium-row">
+      <div class="podium-pos">${medals[i]}</div>
+      <div class="podium-num" style="color:${h.color}">${h.id}</div>
+      <div class="podium-name">${h.name}</div>
+      <div class="podium-time">${tt}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('mPodium').innerHTML = podiumHTML;
+
+  document.getElementById('mHeader').className = 'modal-header ' + (won?'win':'lose');
+
+  if (won) {
+    const winAmount = (parseFloat(winner.odds) * stakeAmount).toFixed(0);
+    document.getElementById('mEmoji').textContent = '🏆';
+    document.getElementById('mHeading').textContent = 'GEVINST!';
+    document.getElementById('mSub').innerHTML = `<strong style="color:white">${winner.name}</strong> tok seieren — du vant <strong style="color:var(--rt-yellow)">${winAmount} kr</strong> (innsats: ${stakeAmount} kr)!`;
+    document.getElementById('mBody').innerHTML = `
+      <div class="gift-section">
+        <div class="gift-label">🎁 BURSDAGSGAVE — LÅST OPP</div>
+        <div class="gift-text">${GIFT_TEXT}</div>
+      </div>`;
+    setComm(`<span class="hi-red">FANTASTISKE SCENER!</span> <span class="hi">${winner.name}</span> vinner BURSDAGSLØPET 2025 i et drama uten like — Bjerke Travbane reiser seg!`);
+    setStatus(`🏆 LØP AVSLUTTET — ${winner.name} VANT! Gratulerer Roy!`);
+    spawnConfetti();
+  } else {
+    document.getElementById('mEmoji').textContent = '😔';
+    document.getElementById('mHeading').textContent = 'IKKE DENNE GANG!';
+    document.getElementById('mSub').innerHTML = `<strong style="color:white">${winner.name}</strong> tok seieren — du valgte <strong style="color:#ff9999">${chosen.name}</strong>`;
+    document.getElementById('mBody').innerHTML = `
+      <div class="try-again-msg">
+        Knapt! Travekspert er ingen lett tittel å erobre — men gaven venter på deg. Prøv et nytt løp og kjør hardere!
+      </div>`;
+    setComm(`<span class="hi">${winner.name}</span> tar gullet i et drama på Bjerke! <span class="hi-red">${chosen.name}</span> — dessverre ikke i dag, kommer sterkere neste gang.`);
+    setStatus(`Løp avsluttet — ${winner.name} vant. Prøv igjen!`);
+  }
+
+  setTimeout(()=>document.getElementById('modal').classList.add('show'), 600);
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('show'); }
+
+function restart() {
+  closeModal();
+  racing=false; selId=null; resultShown=false; finished=[]; commentIdx=0;
+  cancelAnimationFrame(animId);
+  document.getElementById('trackOuter').classList.remove('race-running');
+  document.getElementById('leaderboardPanel').style.display='none';
+  document.getElementById('startBtn').disabled=true;
+  document.getElementById('startGate').style.opacity='1';
+  document.getElementById('startGate').style.transform='translateY(0) scaleY(1)';
+  document.querySelectorAll('.odds-card').forEach(c=>{
+    c.classList.remove('selected'); c.style.pointerEvents='';
+  });
+  document.getElementById('progFill').style.width='0%';
+  document.getElementById('hudDist').textContent='0 / 2100m';
+  document.getElementById('hudTime').textContent='0:00';
+  document.getElementById('hudSpeed').textContent='— km/t';
+  document.getElementById('potentialWin').textContent='— kr ved seier';
+  document.querySelectorAll('.stake-btn').forEach(b => b.disabled = false);
+  setComm('Velg din favoritt og legg inn veddemålet — det største løpet i norsk travhistorie er klart for nytt forsøk!');
+  setStatus('Velg favoritten din nedenfor — løpet starter på din kommando.');
+
+  HORSES.forEach(h=>{
+    positions[h.id]=46;
+    const hw=document.getElementById(`hw-${h.id}`);
+    if(hw){
+      hw.style.transition='none';
+      hw.style.left='46px';
+      hw.classList.remove('finished','boost-active');
+      setTimeout(()=>{if(hw)hw.style.transition='';}, 100);
+    }
+  });
+}
+
+function spawnConfetti() {
+  const colors = ['#d6182c','#ffd230','#ffffff','#1a9647','#d4af37','#2d8acc','#ff6b35','#ff9f40','#9b3dc7'];
+  const shapes = ['50%','0','2px','20% 80%'];
+  for (let i = 0; i < 180; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.className = 'conf';
+      const w = 6 + Math.random()*12;
+      c.style.cssText = `
+        left:${Math.random()*100}vw;
+        width:${w}px;
+        height:${w*(0.5 + Math.random()*0.8)}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        border-radius:${shapes[Math.floor(Math.random()*shapes.length)]};
+        animation-duration:${2.5 + Math.random()*3}s;
+        animation-delay:${Math.random()*0.4}s;
+        opacity:${0.7 + Math.random()*0.3};
+      `;
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(), 6000);
+    }, i*15);
+  }
+}
+
+function handleLogin() {
+  const input = document.getElementById('playerNameInput');
+  const name = input.value.trim() || 'Spiller';
+  playerName = name;
+  const overlay = document.getElementById('loginScreen');
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => overlay.classList.remove('show'), 420);
+  document.getElementById('playerDisplay').textContent = name;
+  document.getElementById('playerPill').style.display = '';
+  setStatus(`Velkommen, <strong style="color:var(--rt-yellow)">${name}</strong>! Velg din favoritt og legg inn innsats — løpet starter på din kommando.`);
+}
+
+function selectStake(amount) {
+  stakeAmount = amount;
+  document.querySelectorAll('.stake-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById(`stake-${amount}`);
+  if (btn) btn.classList.add('active');
+  if (selId) {
+    const h = HORSES[selId-1];
+    const win = (parseFloat(h.odds) * stakeAmount).toFixed(0);
+    document.getElementById('potentialWin').textContent = `→ ${win} kr ved seier`;
+    setComm(`Du satser <strong style="color:var(--rt-yellow)">${stakeAmount} kr</strong> på <span class="hi">${h.name}</span> til odds <span class="hi">${h.odds}</span>. Et utmerket valg!`);
+  }
+}
+
+window.addEventListener('load', () => {
+  buildTrack();
+  buildCards();
+  buildTicker();
+});
+window.addEventListener('resize', () => {
+  if (!racing) HORSES.forEach(h => {
+    positions[h.id] = 46;
+    const hw = document.getElementById(`hw-${h.id}`);
+    if (hw) hw.style.left = '46px';
+  });
+});
+</script>
+</body>
+</html>
