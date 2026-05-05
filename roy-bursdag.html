@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rikstoto — Bursdagsløpet Roy 2025 · LIVE</title>
+<title>Rikstoto — Bursdagsløpet Roy 2026 · LIVE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -1038,6 +1038,36 @@ body { padding-bottom: 30px; }
   letter-spacing: 0.25em; color: rgba(255,255,255,0.45);
   text-transform: uppercase; margin-top: 0.4rem; text-align: center;
 }
+
+/* ═══════════════════ TRACK PICKER ═══════════════════ */
+.track-pick-section { margin-bottom: 1.2rem; }
+.track-pick-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.35rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rt-border) transparent;
+}
+.track-pick-scroll::-webkit-scrollbar { height: 4px; }
+.track-pick-scroll::-webkit-scrollbar-track { background: transparent; }
+.track-pick-scroll::-webkit-scrollbar-thumb { background: var(--rt-border); border-radius: 2px; }
+.track-pick-grid { display: flex; gap: 0.45rem; width: max-content; padding: 2px; }
+.track-pick-card {
+  background: var(--rt-mgrey); border: 1px solid var(--rt-border);
+  border-radius: 5px; padding: 0.5rem 0.65rem;
+  cursor: pointer; transition: all 0.15s; min-width: 82px;
+}
+.track-pick-card:hover { background: #3a3f4a; border-color: #44495a; }
+.track-pick-card.active {
+  background: rgba(255,210,48,0.1); border-color: var(--rt-yellow);
+  box-shadow: 0 0 8px rgba(255,210,48,0.15);
+}
+.track-pick-flag { font-size: 1.1rem; line-height: 1; }
+.track-pick-name {
+  font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--rt-text); margin-top: 0.2rem; line-height: 1.2;
+}
+.track-pick-city { font-size: 0.58rem; color: var(--rt-dim); margin-top: 0.1rem; }
+.track-pick-dist { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--rt-yellow); margin-top: 0.15rem; }
 </style>
 </head>
 <body>
@@ -1046,12 +1076,18 @@ body { padding-bottom: 30px; }
 <div class="login-overlay show" id="loginScreen">
   <div class="login-box">
     <div class="login-logo">RIKSTOTO<span>LIVE</span></div>
-    <div class="login-pretitle">Bursdagskveldens Travspill — 2025</div>
+    <div class="login-pretitle">Bursdagskveldens Travspill — 2026</div>
     <div class="login-form-box">
       <div class="login-field">
         <label>Ditt navn</label>
         <input type="text" id="playerNameInput" placeholder="Skriv inn navn..." maxlength="22"
           onkeydown="if(event.key==='Enter')handleLogin()">
+      </div>
+      <div class="track-pick-section">
+        <div class="login-games-label">Velg bane</div>
+        <div class="track-pick-scroll">
+          <div class="track-pick-grid" id="trackPickGrid"></div>
+        </div>
       </div>
       <div class="login-games-label">Velg spill</div>
       <div class="game-card">
@@ -1095,12 +1131,12 @@ body { padding-bottom: 30px; }
       <span class="badge badge-red badge-pulse">V75 — LØP 7</span>
       <span class="badge badge-green">TRAV · AUTOSTART</span>
       <span class="badge badge-gold">⭐ BURSDAGSSPESIAL</span>
-      <span class="badge badge-grey">BJERKE TRAVBANE · 19:40</span>
+      <span class="badge badge-grey" id="heroBadgeTrack">BJERKE TRAVBANE · 19:40</span>
     </div>
     <div class="hero-title-row">
       <div class="hero-title-block">
         <div class="hero-pretitle">Kveldens hovedløp <span class="sep">●</span> Direktesendt</div>
-        <h1 class="hero-title">BURSDAGSLØPET<br><em>ROY 2025</em></h1>
+        <h1 class="hero-title">BURSDAGSLØPET<br><em>ROY 2026</em></h1>
         <div class="hero-subtitle">Det største løpet i norsk travhistorie — én kveld, én sjanse, én bursdagsgave på spill.</div>
       </div>
       <div class="hero-stats">
@@ -1251,7 +1287,7 @@ body { padding-bottom: 30px; }
         <div class="panel-header">
           <span><span class="ph-icon">📍</span> BANEINFO</span>
         </div>
-        <div style="padding: 0.7rem 0.9rem; font-size: 0.78rem; line-height: 1.6; color: var(--rt-dim)">
+        <div id="baneInfoDiv" style="padding: 0.7rem 0.9rem; font-size: 0.78rem; line-height: 1.6; color: var(--rt-dim)">
           <strong style="color:var(--rt-text)">Bjerke Travbane</strong><br>
           Underlag: <span style="color:var(--rt-text)">Tørt</span> · Bane: <span style="color:var(--rt-text)">Rask</span><br>
           Vind: 2 m/s NV · Sikt: <span style="color:var(--rt-text)">Utmerket</span>
@@ -1274,7 +1310,7 @@ body { padding-bottom: 30px; }
   <div class="modal">
     <div class="modal-header" id="mHeader">
       <div class="modal-emoji" id="mEmoji"></div>
-      <div class="modal-result-label">OFFISIELT RESULTAT — BURSDAGSLØPET 2025</div>
+      <div class="modal-result-label">OFFISIELT RESULTAT — BURSDAGSLØPET 2026</div>
       <div class="modal-result-heading" id="mHeading"></div>
       <div class="modal-result-sub" id="mSub"></div>
     </div>
@@ -1300,6 +1336,22 @@ body { padding-bottom: 30px; }
 /* ═══════════════════════════════════════════════════
    ⚙️  KONFIGURASJON — TILPASS HER!
 ═══════════════════════════════════════════════════ */
+const TRACKS = [
+  { id:'bjerke',    name:'Bjerke',          city:'Oslo',        flag:'🇳🇴', dist:2100 },
+  { id:'forus',     name:'Forus',           city:'Stavanger',   flag:'🇳🇴', dist:2060 },
+  { id:'kloster',   name:'Klosterskogen',   city:'Skien',       flag:'🇳🇴', dist:1609 },
+  { id:'leangen',   name:'Leangen',         city:'Trondheim',   flag:'🇳🇴', dist:1609 },
+  { id:'bergen',    name:'Bergen Travpark', city:'Bergen',      flag:'🇳🇴', dist:1600 },
+  { id:'jarlsberg', name:'Jarlsberg',       city:'Tønsberg',    flag:'🇳🇴', dist:2040 },
+  { id:'momarken',  name:'Momarken',        city:'Østfold',     flag:'🇳🇴', dist:2000 },
+  { id:'biri',      name:'Biri',            city:'Gjøvik',      flag:'🇳🇴', dist:1609 },
+  { id:'solvalla',  name:'Solvalla',        city:'Stockholm',   flag:'🇸🇪', dist:2140 },
+  { id:'aby',       name:'Åby Arena',       city:'Göteborg',    flag:'🇸🇪', dist:2140 },
+  { id:'jagersro',  name:'Jägersro',        city:'Malmö',       flag:'🇸🇪', dist:2640 },
+  { id:'romme',     name:'Romme Alv',       city:'Borlänge',    flag:'🇸🇪', dist:1640 },
+];
+let selectedTrack = TRACKS[0];
+
 const HORSES = [
   { id:1, name:"Kongen Roy",        driver:"R. Jubileum",    color:"#d6182c", odds:"3.20",  spd:0.95, form:"1-2-1-1-2" },
   { id:2, name:"Thai Ørjan",        driver:"Ø. Egeland",     color:"#2d8acc", odds:"4.50",  spd:0.91, form:"2-1-3-2-1" },
@@ -1317,7 +1369,7 @@ Din bursdagsgave er: <strong>[SKRIV GAVEN HER]</strong> 🎁<br><br>
 Vi er utrolig glad i deg! ❤️`;
 
 const RACE_MS = 42000;   // ~42 sek løp — lenger og mer dramatisk
-const TOTAL_M = 2100;
+let TOTAL_M = 2100;
 /* ═══════════════════════════════════════════════════ */
 
 const COMMENTS = [
@@ -1552,9 +1604,9 @@ function buildTicker() {
   const horseTexts = HORSES.map(h=>`<span>${h.id} ${h.name} <span class="t-hi">${h.odds}</span></span>`).join('');
   const extras = `
     <span class="t-pulse">● LIVE NÅ</span>
-    <span class="t-hi">BURSDAGSLØPET ROY 2025</span>
-    <span>BJERKE TRAVBANE · 19:40</span>
-    <span>DISTANSE 2100m AUTO</span>
+    <span class="t-hi">BURSDAGSLØPET ROY 2026</span>
+    <span id="tickerTrack">BJERKE TRAVBANE · 19:40</span>
+    <span id="tickerDist">DISTANSE 2100m AUTO</span>
     <span class="t-hi">V75 LØP 7</span>
     <span>OMSETNING 2.4 MILL</span>
     <span class="t-pulse">8 142 SPILLERE</span>
@@ -1671,7 +1723,7 @@ function startRace() {
   const thresholds = [0, 8, 18, 30, 45, 58, 70, 80, 88, 95, 99];
 
   setComm(`<span class="hi">DE ER AV GÅRDE!</span> Autostart aktivert — 8 hester i full galopp ut av startfeltet!`);
-  setStatus('● RACE PÅGÅR — 2100m igjen til finalen!');
+  setStatus('● RACE PÅGÅR — ' + TOTAL_M + 'm igjen til finalen!');
   setTimeout(()=>setComm(COMMENTS[0](getLeader())), 100);
 
   let lbTick = 0;
@@ -1685,7 +1737,7 @@ function startRace() {
     // HUD updates
     const distM = Math.round(t * TOTAL_M);
     document.getElementById('progFill').style.width = (t*100) + '%';
-    document.getElementById('hudDist').textContent = distM + ' / 2100m';
+    document.getElementById('hudDist').textContent = distM + ' / ' + TOTAL_M + 'm';
     const sec = Math.floor(elapsed/1000);
     document.getElementById('hudTime').textContent = `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`;
     // approx speed (50 km/t at full pace)
@@ -1810,7 +1862,7 @@ function showResult() {
         <div class="gift-label">🎁 BURSDAGSGAVE — LÅST OPP</div>
         <div class="gift-text">${GIFT_TEXT}</div>
       </div>`;
-    setComm(`<span class="hi-red">FANTASTISKE SCENER!</span> <span class="hi">${winner.name}</span> vinner BURSDAGSLØPET 2025 i et drama uten like — Bjerke Travbane reiser seg!`);
+    setComm(`<span class="hi-red">FANTASTISKE SCENER!</span> <span class="hi">${winner.name}</span> vinner BURSDAGSLØPET 2026 i et drama uten like — Bjerke Travbane reiser seg!`);
     setStatus(`🏆 LØP AVSLUTTET — ${winner.name} VANT! Gratulerer Roy!`);
     spawnConfetti();
   } else {
@@ -1843,7 +1895,7 @@ function restart() {
     c.classList.remove('selected'); c.style.pointerEvents='';
   });
   document.getElementById('progFill').style.width='0%';
-  document.getElementById('hudDist').textContent='0 / 2100m';
+  document.getElementById('hudDist').textContent='0 / ' + TOTAL_M + 'm';
   document.getElementById('hudTime').textContent='0:00';
   document.getElementById('hudSpeed').textContent='— km/t';
   document.getElementById('potentialWin').textContent='— kr ved seier';
@@ -1887,10 +1939,52 @@ function spawnConfetti() {
   }
 }
 
+function selectTrack(id) {
+  selectedTrack = TRACKS.find(t => t.id === id) || TRACKS[0];
+  document.querySelectorAll('.track-pick-card').forEach(c => c.classList.remove('active'));
+  const card = document.getElementById('tp-' + id);
+  if (card) card.classList.add('active');
+}
+
+function buildTrackPicker() {
+  const grid = document.getElementById('trackPickGrid');
+  if (!grid) return;
+  TRACKS.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'track-pick-card' + (t.id === 'bjerke' ? ' active' : '');
+    card.id = 'tp-' + t.id;
+    card.innerHTML = `
+      <div class="track-pick-flag">${t.flag}</div>
+      <div class="track-pick-name">${t.name}</div>
+      <div class="track-pick-city">${t.city}</div>
+      <div class="track-pick-dist">${t.dist}m</div>`;
+    card.onclick = () => selectTrack(t.id);
+    grid.appendChild(card);
+  });
+}
+
+function updateTrackDisplay() {
+  const t = selectedTrack;
+  TOTAL_M = t.dist;
+  const badge = document.getElementById('heroBadgeTrack');
+  if (badge) badge.textContent = t.name.toUpperCase() + ' TRAVBANE · 19:40';
+  const bane = document.getElementById('baneInfoDiv');
+  if (bane) bane.innerHTML = `
+    <strong style="color:var(--rt-text)">${t.name} Travbane</strong><br>
+    Distanse: <span style="color:var(--rt-text)">${t.dist}m</span> · Bane: <span style="color:var(--rt-text)">Rask</span><br>
+    Underlag: <span style="color:var(--rt-text)">Tørt</span> · Sikt: <span style="color:var(--rt-text)">Utmerket</span>`;
+  document.getElementById('hudDist').textContent = '0 / ' + TOTAL_M + 'm';
+  const tt = document.getElementById('tickerTrack');
+  if (tt) tt.textContent = t.name.toUpperCase() + ' TRAVBANE · 19:40';
+  const td = document.getElementById('tickerDist');
+  if (td) td.textContent = 'DISTANSE ' + t.dist + 'm AUTO';
+}
+
 function handleLogin() {
   const input = document.getElementById('playerNameInput');
   const name = input.value.trim() || 'Spiller';
   playerName = name;
+  updateTrackDisplay();
   const overlay = document.getElementById('loginScreen');
   overlay.style.opacity = '0';
   overlay.style.transition = 'opacity 0.4s ease';
@@ -1914,6 +2008,7 @@ function selectStake(amount) {
 }
 
 window.addEventListener('load', () => {
+  buildTrackPicker();
   buildTrack();
   buildCards();
   buildTicker();
